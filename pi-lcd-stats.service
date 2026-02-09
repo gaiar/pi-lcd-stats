@@ -1,0 +1,25 @@
+[Unit]
+Description=Pi LCD Stats - Waveshare 1.44" LCD HAT System Monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+Group=__USER__
+WorkingDirectory=__PROJECT_DIR__/src
+ExecStart=__PROJECT_DIR__/.venv/bin/python -m pi_lcd_stats.main
+Restart=on-failure
+RestartSec=10
+
+# Graceful shutdown
+KillSignal=SIGTERM
+TimeoutStopSec=5
+
+# Logging to journald
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pi-lcd-stats
+
+[Install]
+WantedBy=multi-user.target

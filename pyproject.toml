@@ -1,0 +1,13 @@
+[project]
+name = "pi-lcd-stats"
+version = "1.0.0"
+description = "System stats display for Waveshare 1.44inch LCD HAT on Raspberry Pi"
+requires-python = ">=3.11"
+dependencies = [
+    "psutil",
+    "Pillow",
+    "numpy",
+]
+
+[project.scripts]
+pi-lcd-stats = "pi_lcd_stats.main:main"
